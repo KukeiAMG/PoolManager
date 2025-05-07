@@ -15,25 +15,25 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @NotEmpty
     @Size(min = 1, max = 20)
-    String name;
+    private String name;
 
-    String surname;
+    private String surname;
 
-    String patronymic;
+    private String patronymic;
 
     @NotEmpty
     @Column(unique = true)
     @Size(min = 11, max = 12) //номер может начинаться на +7 или 8
-    String phoneNumber;
+    private String phoneNumber;
 
     @NotEmpty
     @Email
     @Column(unique = true)
-    String email;
+    private String email;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations = new ArrayList<>();  // У клиента много записей

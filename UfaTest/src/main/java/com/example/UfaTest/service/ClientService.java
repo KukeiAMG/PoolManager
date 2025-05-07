@@ -1,7 +1,6 @@
 package com.example.UfaTest.service;
 
 import com.example.UfaTest.DTO.ClientDTO;
-import com.example.UfaTest.DTO.ClientUpdateDTO;
 import com.example.UfaTest.model.Client;
 import com.example.UfaTest.repository.ClientRepository;
 import org.springframework.stereotype.Service;
@@ -78,7 +77,14 @@ public class ClientService {
     }
 
 
+    public String reserve(Long id, String datetime, String time){
+        // TODO
+        //  проверить на наличие такого клиента
+        //  а
 
+
+        return "hello";
+    }
 
 
 }
