@@ -1,6 +1,7 @@
 package com.example.UfaTest.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalTime;
@@ -19,7 +20,7 @@ public class VisitSlot {
 
     private int maxCapacityReservations; // макс вместимость
 
-    private int countReservations = 0; //кол-во посещений зарегистрированных на этот слот
+    private int countReservations; //кол-во посещений зарегистрированных на этот слот
 
     @ManyToOne
     @JoinColumn(name = "day_id",nullable = false)
@@ -27,9 +28,10 @@ public class VisitSlot {
     private Day day; // параметры дня
 
     @OneToMany(mappedBy = "visitSlot", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Reservation> reservations; //  регистрации в этот слот
 
-    VisitSlot(){}
+    public VisitSlot(){}
 
     public VisitSlot(LocalTime startTime, int maxCapacityReservations) {
         this.startTime = startTime;

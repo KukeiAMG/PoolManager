@@ -1,5 +1,6 @@
 package com.example.UfaTest.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -36,6 +37,7 @@ public class Client {
     private String email;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Reservation> reservations = new ArrayList<>();  // У клиента много записей
 
     public Client(){}

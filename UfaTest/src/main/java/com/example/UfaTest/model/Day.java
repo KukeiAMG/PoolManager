@@ -17,7 +17,8 @@ public class Day {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // (PK)
 
-    @Column(nullable = false)
+
+    @Column(nullable = false,unique = true)
     private LocalDate localDate ; // дата на которую надо составить расписание
 
     @Column(nullable = false)
@@ -56,6 +57,9 @@ public class Day {
         this.visitSlotList = visitSlotList;
     }
 
+    public Long getId() {
+        return id;
+    }
     public LocalDate getLocalDate() {
         return localDate;
     }

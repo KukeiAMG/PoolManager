@@ -1,6 +1,7 @@
 package com.example.UfaTest.model;
 
 import com.example.UfaTest.Enum.ReservationStatus;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalTime;
@@ -15,37 +16,30 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
+    @JsonBackReference
     private Client client;
 
     @ManyToOne
     @JoinColumn(name = "visit_slot_id")
+    @JsonBackReference
     private VisitSlot visitSlot;
 
-    private int durationTime = 1;
-
-    private LocalTime reservationTime = LocalTime.now(); //время в которое клиент зарегистрировался
-
+    private LocalTime reservationTime;  //время в которое клиент зарегистрировался
 
     @Enumerated(EnumType.STRING)
-    private ReservationStatus status = ReservationStatus.ACTIVE;  // Статус записи
+    private ReservationStatus status;  // Статус записи
 
     public Reservation(){}
 
-    public Reservation(Long id, Client client, VisitSlot visitSlot, int durationTime, LocalTime reservationTime, ReservationStatus status) {
-        this.id = id;
+    public Reservation(Client client, VisitSlot visitSlot) {
         this.client = client;
         this.visitSlot = visitSlot;
-        this.durationTime = durationTime;
-        this.reservationTime = reservationTime;
-        this.status = status;
+        this.reservationTime = LocalTime.now();
+        this.status = status = ReservationStatus.ACTIVE;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Client getClient() {
@@ -62,14 +56,6 @@ public class Reservation {
 
     public void setVisitSlot(VisitSlot visitSlot) {
         this.visitSlot = visitSlot;
-    }
-
-    public int getDurationTime() {
-        return durationTime;
-    }
-
-    public void setDurationTime(int durationTime) {
-        this.durationTime = durationTime;
     }
 
     public LocalTime getReservationTime() {
@@ -94,7 +80,6 @@ public class Reservation {
                 "id=" + id +
                 ", client=" + client +
                 ", visitSlot=" + visitSlot +
-                ", durationTime=" + durationTime +
                 ", reservationTime=" + reservationTime +
                 ", status=" + status +
                 '}';
