@@ -5,7 +5,8 @@ public class ClientDTO {
     Long id;
     String name;
 
-    ClientDTO(){}
+    ClientDTO() {
+    }
 
     public ClientDTO(Long id, String name) {
         this.id = id;

@@ -1,0 +1,724 @@
+{
+	"info": {
+		"_postman_id": "1c7d9255-9c34-4b76-a4f1-ba300b467bc8",
+		"name": "UfanetTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39125062",
+		"_collection_link": "https://no1111-0479.postman.co/workspace/UfanetTEst~a0a83d35-387f-491b-9a14-84a71a6e1cc8/collection/39125062-1c7d9255-9c34-4b76-a4f1-ba300b467bc8?action=share&source=collection_link&creator=39125062"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "UpdateClient",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"14\",\r\n\r\n    \"surname\": \"Васянов\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url8080}}/v0/pool/client/update",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"pool",
+								"client",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Васянов",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"14\",\r\n\r\n    \"surname\": \"Васянов\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/pool/client/update",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"pool",
+										"client",
+										"update"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "AddClient",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Лехич\",\r\n    \"surname\": \"Иванов\", \r\n    \"patronymic\": \"Иванович\",\r\n    \"phoneNumber\": \"+79151683232\",\r\n    \"email\": \"ivan@xm12le.com\"     \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url8080}}/v0/pool/client/add",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"pool",
+								"client",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Равильян",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Равильян\",\r\n    \"surname\": \"Ахмадеев\", \r\n    \"patronymic\": \"Иванович\",\r\n    \"phoneNumber\": \"+79151688232\",\r\n    \"email\": \"iрan@xm12le.com\"     \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/pool/client/add",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"pool",
+										"client",
+										"add"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetForId",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url8080}}/v0/pool/client/get/3",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"pool",
+								"client",
+								"get",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetForId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url8080}}/v0/pool/client/get/3",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"pool",
+										"client",
+										"get",
+										"3"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url8080}}/v0/pool/client/all",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"pool",
+								"client",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetAll",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url8080}}/v0/pool/client/all",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"pool",
+										"client",
+										"all"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Day",
+			"item": [
+				{
+					"name": "AddDay",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"localDate\":\"2025-05-13\",\r\n    \"workingHoursStart\":\"8:00\",\r\n    \"workingHoursEnd\":\"22:00\",\r\n    \"dayType\":\"WORKDAY\",\r\n    \"maxCapacityReservations\":\"10\",\r\n    \"maxVisitsPerDay\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url8080}}/v0/timetable/day/add",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"timetable",
+								"day",
+								"add"
+							]
+						},
+						"description": "добавление нового дня"
+					},
+					"response": [
+						{
+							"name": "WORKDAY",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"localDate\":\"2025-05-13\",\r\n    \"workingHoursStart\":\"8:00\",\r\n    \"workingHoursEnd\":\"22:00\",\r\n    \"dayType\":\"WORKDAY\",\r\n    \"maxCapacityReservations\":\"10\",\r\n    \"maxVisitsPerDay\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/day/add",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"day",
+										"add"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "HOLIDAY",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"localDate\":\"2025-05-20\",\r\n    \"workingHoursStart\":\"10:00\",\r\n    \"workingHoursEnd\":\"20:00\",\r\n    \"dayType\":\"HOLIDAY\",\r\n    \"maxCapacityReservations\":\"15\",\r\n    \"maxVisitsPerDay\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/day/add",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"day",
+										"add"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "VisitSlot",
+			"item": [
+				{
+					"name": "GetAllVisitSlot",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-05-08\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url8080}}/v0/timetable/all",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"timetable",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "2025-05-08",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"2025-05-08\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/all",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"all"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "2025-05-11",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"2025-05-11\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/all",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"all"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetAvailableVisitSlot",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url8080}}/v0/timetable/available",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"timetable",
+								"available"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "2025-05-08",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"2025-05-08\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/available",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"available"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "2025-05-11",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"2025-05-11\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/available",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"available"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Reserve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clientId\": \"2\",\r\n  \"date\": \"2025-05-11\",\r\n  \"time\": \"19:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url8080}}/v0/timetable/reserve",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"timetable",
+								"reserve"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reserve",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"clientId\": \"2\",\r\n  \"date\": \"2025-05-11\",\r\n  \"time\": \"19:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/reserve",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"reserve"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "CancelReserve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clientId\": \"2\",\r\n  \"date\": \"2025-05-11\",\r\n  \"time\": \"19:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url8080}}/v0/timetable/reserve",
+							"host": [
+								"{{url8080}}"
+							],
+							"path": [
+								"v0",
+								"timetable",
+								"reserve"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CancelReserve",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"clientId\": \"1\",\r\n  \"orderId\": \"15\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url8080}}/v0/timetable/cancel",
+									"host": [
+										"{{url8080}}"
+									],
+									"path": [
+										"v0",
+										"timetable",
+										"cancel"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetReserveByFullname",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "GetReserveByFullname",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"\",\r\n    \"surname\":\"\",\r\n    \"patronymic\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetReserveByDate",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "GetReserveByDate",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}

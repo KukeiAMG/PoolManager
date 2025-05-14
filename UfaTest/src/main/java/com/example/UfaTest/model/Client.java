@@ -37,10 +37,11 @@ public class Client {
     private String email;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference(value = "client-reservations")
     private List<Reservation> reservations = new ArrayList<>();  // У клиента много записей
 
-    public Client(){}
+    public Client() {
+    }
 
     public Client(String name, String surname, String patronymic, String phoneNumber, String email) {
         this.name = name;
@@ -116,6 +117,6 @@ public class Client {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", reservations=" + reservations +
-                '}';
+                '}' + "\n";
     }
 }

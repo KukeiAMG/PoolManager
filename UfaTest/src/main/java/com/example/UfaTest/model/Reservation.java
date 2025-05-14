@@ -16,12 +16,12 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    @JsonBackReference
+    @JsonBackReference(value = "client-reservations")
     private Client client;
 
     @ManyToOne
     @JoinColumn(name = "visit_slot_id")
-    @JsonBackReference
+    @JsonBackReference(value = "visitSlot-reservations")
     private VisitSlot visitSlot;
 
     private LocalTime reservationTime;  //время в которое клиент зарегистрировался
@@ -29,7 +29,8 @@ public class Reservation {
     @Enumerated(EnumType.STRING)
     private ReservationStatus status;  // Статус записи
 
-    public Reservation(){}
+    public Reservation() {
+    }
 
     public Reservation(Client client, VisitSlot visitSlot) {
         this.client = client;
@@ -82,7 +83,7 @@ public class Reservation {
                 ", visitSlot=" + visitSlot +
                 ", reservationTime=" + reservationTime +
                 ", status=" + status +
-                '}';
+                '}' + "\n";
     }
 }
 

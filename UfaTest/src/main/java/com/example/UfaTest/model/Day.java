@@ -1,6 +1,7 @@
 package com.example.UfaTest.model;
 
 import com.example.UfaTest.Enum.DayType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -18,32 +19,28 @@ public class Day {
     private Long id; // (PK)
 
 
-    @Column(nullable = false,unique = true)
-    private LocalDate localDate ; // дата на которую надо составить расписание
+    @Column(nullable = false, unique = true)
+    private LocalDate localDate; // дата на которую надо составить расписание
 
     @Column(nullable = false)
-    private LocalTime workingHoursStart ; // (начало рабочего дня)
+    @JsonFormat(pattern = "H:mm")
+    private LocalTime workingHoursStart; // (начало рабочего дня)
 
     @Column(nullable = false)
-    private LocalTime workingHoursEnd ; // (конец рабочего дня)
+    @JsonFormat(pattern = "H:mm")
+    private LocalTime workingHoursEnd; // (конец рабочего дня)
 
-    private String dayType ; // тип дня, по умолчанию рабочий
+    private String dayType; // тип дня, по умолчанию рабочий
 
     private int maxCapacityReservations; // максимальное кол-во посетителей в слоте
 
     private int maxVisitsPerDay = 1;
 
     @OneToMany(mappedBy = "day", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference(value = "day-visitSlot")
     private List<VisitSlot> visitSlotList;
 
-    public Day(){
-        this.localDate = LocalDate.parse("2025-05-07");
-        this.workingHoursStart = LocalTime.parse("08:00");
-        this.workingHoursEnd = LocalTime.parse("22:00");
-        this.dayType = DayType.WORKDAY.toString();
-        this.maxCapacityReservations = 10;
-        this.maxVisitsPerDay = 1;
+    public Day() {
         this.visitSlotList = new ArrayList<>();
     }
 
@@ -57,9 +54,36 @@ public class Day {
         this.visitSlotList = visitSlotList;
     }
 
+    // создание стандартного рабочего дня
+    public static Day createDefaultWorkDay(LocalDate date) {
+        Day day = new Day();
+        day.setLocalDate(date);
+        day.setWorkingHoursStart(LocalTime.parse("08:00"));
+        day.setWorkingHoursEnd(LocalTime.parse("22:00"));
+        day.setDayType(DayType.WORKDAY.toString());
+        day.setMaxCapacityReservations(10);
+        day.setMaxVisitsPerDay(1);
+        day.setVisitSlotList(new ArrayList<>());
+        return day;
+    }
+
+    // создание стандартного выходного дня
+    public static Day createDefaultHoliday(LocalDate date) {
+        Day day = new Day();
+        day.setLocalDate(date);
+        day.setWorkingHoursStart(LocalTime.parse("10:00"));
+        day.setWorkingHoursEnd(LocalTime.parse("23:00"));
+        day.setDayType(DayType.HOLIDAY.toString());
+        day.setMaxCapacityReservations(15);
+        day.setMaxVisitsPerDay(1);
+        day.setVisitSlotList(new ArrayList<>());
+        return day;
+    }
+
     public Long getId() {
         return id;
     }
+
     public LocalDate getLocalDate() {
         return localDate;
     }
@@ -126,6 +150,6 @@ public class Day {
                 ", workingHoursStart=" + workingHoursStart +
                 ", localDate=" + localDate +
                 ", id=" + id +
-                '}';
+                '}' + "\n";
     }
 }

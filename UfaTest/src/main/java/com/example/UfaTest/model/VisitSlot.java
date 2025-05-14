@@ -23,15 +23,16 @@ public class VisitSlot {
     private int countReservations; //кол-во посещений зарегистрированных на этот слот
 
     @ManyToOne
-    @JoinColumn(name = "day_id",nullable = false)
-    @JsonBackReference
+    @JoinColumn(name = "day_id", nullable = false)
+    @JsonBackReference(value = "day-visitSlot")
     private Day day; // параметры дня
 
     @OneToMany(mappedBy = "visitSlot", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value = "visitSlot-reservations")
     private List<Reservation> reservations; //  регистрации в этот слот
 
-    public VisitSlot(){}
+    public VisitSlot() {
+    }
 
     public VisitSlot(LocalTime startTime, int maxCapacityReservations) {
         this.startTime = startTime;
@@ -64,6 +65,10 @@ public class VisitSlot {
         this.countReservations = countReservations;
     }
 
+    public void addToCountReservations(int num) {
+        countReservations += num;
+    }
+
     public Day getDay() {
         return day;
     }
@@ -78,5 +83,18 @@ public class VisitSlot {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+
+    @Override
+    public String toString() {
+        return "VisitSlot{" +
+                "id=" + id +
+                ", startTime=" + startTime +
+                ", maxCapacityReservations=" + maxCapacityReservations +
+                ", countReservations=" + countReservations +
+                ", day=" + day +
+                ", reservations=" + reservations +
+                '}' + "\n";
     }
 }
